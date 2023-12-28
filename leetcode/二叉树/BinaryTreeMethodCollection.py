@@ -19,6 +19,8 @@ class TreeNode(object):
 		self.right = right
 
 
+
+
 class Solutions(object):
 	# 深度优先 递归方式  三种遍历只需要交换位置即可
 	def preorderTraversal(self, root: TreeNode) -> List[int]:
