@@ -1,0 +1,18 @@
+2023-12-02 11:05:09 - root - INFO    will be 1 : 11:05:10
+2023-12-02 11:05:10 - root - INFO    taiwan ...
+2023-12-04 20:36:10 - root - INFO    will be 14 : 20:36:24
+2023-12-04 20:38:08 - root - INFO    will be 16 seconds later: 2023-12-04 20:38:18
+2023-12-04 20:41:10 - root - INFO    will be 8 seconds later: 2023-12-04 20:41:17
+2023-12-04 20:41:18 - root - INFO    Something went wrong, 500
+2023-12-04 20:43:32 - root - INFO    will be 29 seconds later: 2023-12-04 20:44:01
+2023-12-04 20:44:01 - root - INFO    Something went wrong, 500
+2023-12-05 15:35:43 - root - INFO    call dingding result : {'errcode': 0, 'errmsg': 'ok'}
+2023-12-07 14:18:32 - root - INFO    Something went wrong, 200 -1
+2023-12-07 14:18:33 - root - INFO    call dingding result : {'errcode': 0, 'errmsg': 'ok'}
+2023-12-07 14:24:59 - root - INFO    Something went wrong, 200 resp:  -1
+2023-12-07 14:24:59 - root - INFO    call dingding result : {'errcode': 0, 'errmsg': 'ok'}
+2023-12-07 14:28:57 - root - INFO    The system is starting. . .
+2023-12-07 14:28:57 - root - INFO    will be 9 seconds later: 2023-12-07 14:29:06
+2023-12-07 14:29:07 - root - INFO    Something went wrong, 500
+2023-12-07 14:29:07 - root - INFO    {"timestamp":"2023-12-07T06:29:07.873+00:00","status":500,"error":"Internal Server Error","path":"/do"}
+2023-12-07 14:29:08 - root - INFO    call dingding result : {'errcode': 0, 'errmsg': 'ok'}
