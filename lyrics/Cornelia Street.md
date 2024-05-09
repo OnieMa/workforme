@@ -27,15 +27,15 @@ I'd never walk Cornelia Street again
 Windows ﬂung right open
 Autumn air, jacket round my shoulders is yours
 We bless the rains on Cornelia Street
-Memorise the creaks in the ﬂoor
+Memorise the creaks in the floor
 Back when we were card sharks, playing games
 I thought you were leading me on
 I packed my bags, left Cornelia Street
 Before you even knew I was gone
 But then you called
 Showed your hand
-I turned around before I hit the tunnel
-Sat on the roof, you and I
+I turned around before I hit the tunnel Sat 
+on the roof, you and I
 
 I hope I never lose you
 Hope it never ends
