@@ -1,0 +1,674 @@
+openapi: "3.0.2"
+info:
+  title: Skywatch Subscription API doc for DH
+  version: "0.0.1"
+servers:
+  - url: https://{environment}.DH.com/example
+    variables:
+      environment:
+        default: api    # Production server
+        enum:
+          - api         # Production server
+          - dev.api     # Development server
+          - staging.api # Staging server
+          - poc.api # PoC server
+
+paths:
+  # for 3rd Cloud
+  /v1/service/subscriptions/{subscription_id}:
+    get:
+      tags: [Skywatch subscription API for Dahua]
+      summary: "[] Get subscription detail. (Auth: DH Cloud)"
+      responses:
+        "200":
+          $ref: "#/components/responses/SkywatchCloudSubscriptionInfo"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        default:
+          $ref: "#/components/responses/Unexpected"
+
+  # 3rd Cloud
+  /cloud/subscriptions:
+    post:
+      tags: [Dahua's API]
+      summary: "[Subscription-07] Create a new subscription. (Auth: Skywatch Cloud)"
+      requestBody:
+        $ref: "#/components/requestBodies/CloudSubscriptionPostBody"
+      responses:
+        "200":
+          $ref: "#/components/responses/DHResponse"
+
+  /cloud/subscriptions/{subscription_id}:
+    get:
+      tags: [Dahua's API]
+      summary: "[] Get subscription detail. (Auth: Skywatch Cloud)"
+      responses:
+        "200":
+          $ref: "#/components/responses/CloudSubscriptionInfo"
+
+    put:
+      tags: [Dahua's API]
+      summary: "[] Update subscription. (Auth: Skywatch Cloud)"
+      requestBody:
+        $ref: "#/components/requestBodies/CloudSubscriptionPatchBody"
+      responses:
+        "200":
+          $ref: "#/components/responses/DHResponse"
+
+  /cloud/subscriptions/{subscription_id}/status:
+    post:
+      tags: [Dahua's API]
+      summary: "[] Update subscription status. (Auth: Skywatch Cloud)"
+      requestBody:
+        $ref: "#/components/requestBodies/CloudSubscriptionPutStatusBody"
+      responses:
+        "200":
+          $ref: "#/components/responses/DHResponse"
+  
+  /cloud/user_info/{user}:
+    get:
+      tags: [Dahua's API]
+      summary: "[Subscription-01] Get user info. (Auth: Skywatch Cloud)"
+      parameters:
+        - $ref: "#/components/parameters/CloudUserParam"
+      responses:
+        "200":
+          $ref: "#/components/responses/CloudUserInfo"
+
+components:
+  requestBodies:
+    # 3rd Cloud
+    CloudSubscriptionPostBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CloudSubscriptionCreationBody"
+    CloudSubscriptionPatchBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CloudSubscriptionUpdateBody"
+    CloudSubscriptionPutStatusBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CloudSubscriptionUpdateStatusBody"
+
+  parameters:
+    # 3rd Cloud
+    CloudUserParam:
+      in: path
+      name: user
+      description: specific user.
+      required: true
+      schema:
+        $ref: "#/components/schemas/User"
+
+  schemas:
+    # Plan
+    PlanId:
+      type: string
+      description: "ID of a plan. Format: plan-yyyymmddHHmmssSSS"
+      example: plan-20230204154023299
+    PlanSerialName:
+      type: string
+      example: Cloud Backup for Event Recording
+    PlanVariantName:
+      type: string
+      example: Standard Plan
+    SpecificTypeRetention:
+      type: object
+      properties:
+        retention:
+          type: integer
+          description: Retention period for this specific type and it overwrites the default retention period if presented. In day.
+          default: 30
+          maximum: 180
+          example: 30
+    AttachmentTypeCapPerDay:
+      type: object
+      properties:
+        cap_per_day:
+          type: integer
+          description: Max number of this particular type of attachment included in a plan.
+          default: 5000
+          maximum: 5000
+          example: 200
+    RecordingType:
+      type: string
+      description: Types of recordings included in a plan.
+      enum: [all, motion, person, vehicle, animal, package, continuous]
+      example: person
+    RecordingResolution:
+      type: string
+      description: Max resolution included in a plan, in user-friendly term.
+      enum: [1080p, 2K, 4K]
+      default: 2K
+      example: 1080p
+    PlanRecording:
+      type: object
+      required: [retention, type, resolution]
+      properties:
+        retention:
+          type: integer
+          description: Default retention period for all types of recordings, in day.
+          default: 30 #All the recordings on the cloud will be kept for 30 days.
+          maximum: 180
+          example: 30
+        resolution:
+            $ref: "#/components/schemas/RecordingResolution"
+        number:
+          type: integer
+          description: The max number of video uploads per day.
+          default: 5000 # Max 5000 recording per day.
+          maximum: 5000
+          example: 1000
+        # length and size are removed from POC
+        # length:
+        #   type: integer
+        #   description: The max length of videos, set to 0 means no limitation. In second.
+        #   maximum: 600
+        #   example: 30 # Max recording length is 30s.
+        # size:
+        #   type: integer
+        #   description: The max file size of videos, set to 0 means no limitation. In MB (Mega Bytes).
+        #   maximum: 100
+        #   example: 30 # Max recording size is 30MB.
+        "type":
+          type: array
+          items:
+            $ref: "#/components/schemas/RecordingType"
+          default: [all]
+          example: [person, vehicle]
+        motion:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        person:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        vehicle:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        animal:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        package:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        continuous:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+    PlanNotification:
+      type: object
+      required: [attachment]
+      properties:
+        # interval:
+        #   type: integer
+        #   description: The min interval between two notifications per type, in second. Value 0 means no limit.
+        #   example: 60 # Max 1 notification every 60s.
+        # event:
+        #   type: array
+        #   description: Types of events included in a plan.
+        #   items:
+        #     type: string
+        #     enum: [person, vehicle, animal, package]
+        #   example: [person, vehicle] # Notification for *person* and *vehicle* events will be sent to user.
+        attachment:
+          type: object
+          required: [cap_per_day, type]
+          properties:
+            cap_per_day:
+              type: integer
+              description: Default **total** number of attachments, including all types, per recipient per day. It's reset at midnight every day of device local time.
+              default: 5000
+              maximum: 5000
+              example: 120 # Max 120 of attachments (could be thumbnail images or any types supported) per day.
+            "type":
+              type: array
+              items:
+                type: string
+                description: Types of attachments included in a plan. If omitted or empty, means no attachment in the notificaiton but only text.
+                enum: [image, gif, audio, video]
+            image:
+              $ref: "#/components/schemas/AttachmentTypeCapPerDay"
+            gif:
+              $ref: "#/components/schemas/AttachmentTypeCapPerDay"
+            audio:
+              $ref: "#/components/schemas/AttachmentTypeCapPerDay"
+            video:
+              $ref: "#/components/schemas/AttachmentTypeCapPerDay"
+    PlanEvent:
+      type: object
+      required: [interval, type, retention, eventNumber, thumbnailNumber]
+      properties:
+        interval:
+          type: integer
+          description: The min interval between two events per type, in second. Value 0 means no limit.
+          default: 90
+          maximum: 3600
+          example: 90 # Max 1 event (per event type) every 00s.
+        event_number:
+          type: integer
+          description: The max number of events a day that would be stored in the database.
+          default: 5000
+          maximum: 5000
+          example: 500
+        thumbnail_number:
+          type: integer
+          description: The max number of thumbnails a day that would be stored in the database.
+          default: 5000
+          maximum: 5000
+          example: 500
+        "type":
+          type: array
+          description: Types of events included in a plan.
+          items:
+            type: string
+            enum: [all, motion, person, vehicle, animal, package, sensor]
+          default: [all]
+          example: [person, vehicle] # Only will the *person* and *vehicle* events be kept/stored in the cloud.
+        retention:
+          type: integer
+          description: Default retention period for all included types of events, in day.
+          default: 7
+          # maximum: 180
+          enum: [3, 7, 30]
+          example: 7 # All included types of events (event history) are kept in the cloud for 3 days.
+        motion:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        person:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        vehicle:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        animal:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        package:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+        sensor:
+          $ref: "#/components/schemas/SpecificTypeRetention"
+    PlanDetails:
+      type: object
+      description: Details of a plan.
+      required: [association, recording]
+      properties:
+        association:
+          type: object
+          required: [channels, cross_devices]
+          properties:
+            channels:
+              type: integer
+              description: Number of channels included in a plan. **NOTE** if *channels* is greater than 1, in order for users to be able to assign the channels to a multi-channel device (recorder), the *cross_devices* **MUST** set to true.
+              minimum: 1
+              maximum: 64
+              default: 1
+            cross_devices:
+              type: boolean
+              description: Whether the channels could be enabled across devices. Say a plan includes 2 channels, if cross_devices is set to true, user may assign one channel to one device and another channel to another device; whereas if cross_devices is false, then all channels have to be assigned to same device.
+              default: false
+            device_models:
+              type: array
+              description: The devices to which orders can be sold, when empty, means support for all devices.
+              items:
+                type: string
+              default: []
+          example:
+            channels: 4
+            cross_devices: true
+            device_models: []
+        recording:
+          $ref: "#/components/schemas/PlanRecording"
+        notification:
+          $ref: "#/components/schemas/PlanNotification"
+        event:
+          $ref: "#/components/schemas/PlanEvent"
+
+    # Subscription
+    ShopifySubscriptionID:
+      type: string
+      description: "ID of a Subscription of Shopify"
+      example: "11735105000"
+    SubscriptionID:
+      type: string
+      description: "ID of a subscription. Format: sub-yyyymmddHHmmssSSS-xxxxxxxx"
+      example: sub-20230204154023299-abcd123e
+    SubscriptionStatus:
+      type: string
+      description: Status of a subscription.
+      enum: [created, pendingPayment, activated, deactivated, expired, suspended, canceled]
+    SubscriptionUpdatedAt:
+      type: string
+      format: date-time
+      description: The date/time of last update to the subscription, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+      example: "2022-02-04T06:30:00Z"
+    UnSubscriptionDateTimeAt:
+      type: string
+      format: date-time
+      description: The date/time of unsubscription, if the this field is reached, regardless of the status, it will be considered as the end of the subscription, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+      example: "2023-09-04T06:30:00Z"
+    NextBillingDate:
+      type: string
+      description: next billing date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+      format: date-time
+      example: "2022-07-31T00:00:00Z"
+
+    # User association
+    User:
+      type: string
+      description: User account id
+      format: email
+      example: XXXXX@email.org
+    DeviceID:
+      type: string
+      description: device id
+      example: device-001
+    DeviceChannelID:
+      type: integer
+      description: index of channel
+      minimum: 1
+      maximum: 64
+      example: 1
+    Device:
+      type: object
+      required: [id, device_model_id, channels]
+      properties:
+        id:
+          $ref: "#/components/schemas/DeviceID"
+        device_model_id:
+          type: string
+          example: "device-model-001"
+        channels:
+          type: array
+          description: array of channels of device, when device not supported multiple channel, that only have one value.
+          items:
+            $ref: "#/components/schemas/DeviceChannelID"
+          minItems: 1
+          maxItems: 64
+          example: [1, 4, 5]
+    Devices:
+      type: array
+      items:
+        $ref: "#/components/schemas/Device"
+      minItems: 0
+      maxItems: 64
+
+    UserAssociation:
+      type: object
+      required: [user, devices]
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+        devices:
+          $ref: "#/components/schemas/Devices"
+
+    # Subscriptions
+    CloudSubscriptionCreationBody:
+      type: object
+      required: [plan_id, plan_serial_name, plan_variant_name, shopify_subscription_id, subscription_id, subscription_status, next_billing_date, association, recording, notification, event]
+      properties:
+        plan_id:
+          $ref: "#/components/schemas/PlanId"
+        plan_serial_name:
+          $ref: "#/components/schemas/PlanSerialName"
+        plan_variant_name:
+          $ref: "#/components/schemas/PlanVariantName"
+        shopify_subscription_id:
+          $ref: "#/components/schemas/ShopifySubscriptionID"
+        subscription_id:
+          $ref: "#/components/schemas/SubscriptionID"
+        subscription_status:
+          $ref: "#/components/schemas/SubscriptionStatus"
+        next_billing_date:
+          $ref: "#/components/schemas/NextBillingDate"
+        association:
+          $ref: "#/components/schemas/UserAssociation"
+        recording:
+          $ref: "#/components/schemas/PlanRecording"
+        notification:
+          $ref: "#/components/schemas/PlanNotification"
+        event:
+          $ref: "#/components/schemas/PlanEvent"
+    CloudSubscriptionUpdateBody:
+      type: object
+      required: [plan_serial_name, plan_variant_name, updated_at, next_billing_date, association, recording, notification, event]
+      properties:
+        plan_serial_name:
+          $ref: "#/components/schemas/PlanSerialName"
+        plan_variant_name:
+          $ref: "#/components/schemas/PlanVariantName"
+        updated_at:
+          $ref: "#/components/schemas/SubscriptionUpdatedAt"
+        next_billing_date:
+          $ref: "#/components/schemas/NextBillingDate"
+        association:
+          $ref: "#/components/schemas/UserAssociation"
+    CloudSubscriptionUpdateStatusBody:
+      type: object
+      required: [updated_at, subscription_status]
+      properties:
+        updated_at:
+          $ref: "#/components/schemas/SubscriptionUpdatedAt"
+        subscription_status:
+          $ref: "#/components/schemas/SubscriptionStatus"
+
+    # Cloud 
+    CloudDeviceChannel:
+      type: object
+      required: [channel_id, channel_name, model_id, firmware_id]
+      properties:
+        channel_id:
+          $ref: '#/components/schemas/DeviceChannelID'
+        channel_name:
+          type: string
+          example: "I'm channel name"
+        model_id:
+          type: string
+          description: channel's model id
+          example: "NVR-CAMERA-001"
+        firmware_id:
+          type: string
+          example: "firmware002"
+    CloudDevice:
+      type: object
+      required: [id, model_id, firmware_id, device_name, channels]
+      properties:
+        id:
+          $ref: "#/components/schemas/DeviceID"
+        model_id:
+          type: string
+          description: device's model id
+          example: "NVR-001"
+        firmware_id:
+          type: string
+          example: "firmware001"
+        device_name:
+          type: string
+          example: "I'm device name"
+        channels:
+          type: array
+          description: array of channels of device, when device not supported multiple channel, that only have one value.
+          items:
+            $ref: "#/components/schemas/CloudDeviceChannel"
+          minItems: 0
+          maxItems: 64
+    CloudDevices:
+      type: array
+      items:
+        $ref: "#/components/schemas/CloudDevice"
+      minItems: 1
+      maxItems: 64
+    CloudUserAssociation:
+      type: object
+      required: [user, devices]
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+        devices:
+          $ref: "#/components/schemas/CloudDevices"
+
+    CloudUserAssociationFormat:
+      type: object
+      required:
+        - code
+        - message
+        - data
+      properties:
+        code:
+          type: string
+          example: 0
+        message:
+          type: string
+        data:
+            $ref: "#/components/schemas/CloudUserAssociation"
+
+    # 3rd Cloud
+    CloudSubscriptionInfo:
+      type: object
+      required: [plan_id, plan_serial_name, plan_variant_name, shopify_subscription_id, subscription_id, subscription_status, updated_at, next_billing_date, association, recording, notification, event]
+      properties:
+        plan_id:
+          $ref: "#/components/schemas/PlanId"
+        plan_serial_name:
+          $ref: "#/components/schemas/PlanSerialName"
+        plan_variant_name:
+          $ref: "#/components/schemas/PlanVariantName"
+        shopify_subscription_id:
+          $ref: "#/components/schemas/ShopifySubscriptionID"
+        subscription_id:
+          $ref: "#/components/schemas/SubscriptionID"
+        subscription_status:
+          $ref: "#/components/schemas/SubscriptionStatus"
+        updated_at:
+          $ref: "#/components/schemas/SubscriptionUpdatedAt"
+        next_billing_date:
+          $ref: "#/components/schemas/NextBillingDate"
+        association:
+          $ref: "#/components/schemas/UserAssociation"
+        recording:
+          $ref: "#/components/schemas/PlanRecording"
+        notification:
+          $ref: "#/components/schemas/PlanNotification"
+        event:
+          $ref: "#/components/schemas/PlanEvent"
+
+    SkywatchCloudSubscriptionInfo:
+      $ref: "#/components/schemas/CloudSubscriptionInfo"
+
+    CloudSubscriptionInfoFormat:
+      type: object
+      required:
+        - code
+        - message
+        - data
+      properties:
+        code:
+          type: string
+          example: 0
+        message:
+          type: string
+        data:
+            $ref: "#/components/schemas/CloudSubscriptionInfo"
+
+    # Success
+    GeneralSuccess:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
+          example: Success
+
+    # Errors
+    GeneralError:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
+    # DH format
+    GeneralDHFormat:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: 0
+        message:
+          type: string
+
+  responses:
+    # skywatch
+    SkywatchCloudSubscriptionInfo:
+      description: Subscription info from skywatch
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/SkywatchCloudSubscriptionInfo"
+
+    # 3rd Cloud
+    CloudUserInfo:
+      description: User info #from 3rd (The content can only be the information of the user in the AWS Cognito token and cannot access other user information.)
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CloudUserAssociationFormat"
+    CloudSubscriptionInfo:
+      description: Subscription info from 3rd cloud
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CloudSubscriptionInfoFormat"
+
+    CloudSuccess:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralSuccess"
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+    Unexpected:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralError"
+    DHResponse:
+      description: DH Format
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GeneralDHFormat"
+
+  # Security Schemas
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+
+security:
+  - ApiKeyAuth: []
+
