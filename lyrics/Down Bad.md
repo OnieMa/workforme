@@ -1,20 +1,24 @@
 Did you really beam me up?
 In a cloud of sparkling dust
 Just to do   experiments on 
-Tell me I was the chosen one
-Show me that this world is bigger than us
-Then sent me back where I came    from
+          `沃儿 the  抽 zzen`
+Tell me I wasthe  chosen one
+Show me that this world is bigger   than us
+Then sent me  back where I came    from
 
 For a moment I knew cosmic love
 
 Now I'm down bad crying at the gym
-Everything comes out teenage petulance
+Everything comes out tee-nage petulance
 "What if I can't have him"
 
 "I might just die, it-would make no difference."
+          `歪k a平`
 Down bad, waking up in blood
+`s丹瑞 安the sky 康m 半看 pick me up`
 Staring at the sky, come backand   pick me up
 What if I can't have us.
+                 ` 干    啊 p 麻  ` 
 I might just not get  upI might stay  
 
 down bad
@@ -45,10 +49,11 @@ Like I lost my twin
 What if I can't have him
 Down bad
 Down bad
-
-
 Waving at the ship
 What if I can't have him
+
+
+
 I loved your hostile takeovers
 Encounters closer and closer
 All your indecent exposures
@@ -60,6 +65,7 @@ Leaving me safe and stranded
 Cause what if I was in love
 What if I can't have us.
 Cause what if I was in love
+
 
 
 
