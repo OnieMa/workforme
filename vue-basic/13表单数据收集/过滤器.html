@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="root">
+    <form @submit.prevent="ok">
+        <label for="account">账号: </label>
+        <input id="account" v-model.trim="account" type="text">
+        <br>
+        <label for="pass">密码: </label>
+        <input id="pass" v-model.trim="pass" type="password">
+        年龄: <input type="text" v-model.number="age">
+        性别:
+        男<input type="radio" name="sex" value="man" v-model="sex">
+        女<input type="radio" name="sex" value="women" v-model="sex">
+        <br>
+        爱好:
+        学习<input type="checkbox" name="hobby" v-model="hobby" value="study">
+        游戏<input type="checkbox" name="hobby" v-model="hobby" value="game">
+        烫头<input type="checkbox" name="hobby" v-model="hobby" value="drunk">
+        <br>
+        所属小区:
+        <label>
+            <select v-model="city">
+                <option value="请选择小区"></option>
+                <option value="bj">北京</option>
+                <option value="sh">上海</option>
+                <option value="cd">成俗</option>
+            </select>
+        </label><br>
+        其他协议:
+        <textarea v-model.lazy="info"></textarea><br>
+        <input type="checkbox" v-model="agree"> 阅读并勾选协议
+        <br>
+        <button>提交</button>
+    </form>
+</div>
+
+
+<script type="text/javascript">
+    Vue.config.devtools = true;
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            account: '',
+            age:132,
+            pass: '',
+            sex: '',
+            hobby: [], //hobby的初始值会影响后续数据的展示  '' 和 []
+            city: '',
+            info: '',
+            agree: ''
+
+        },
+        methods: {
+            ok() {
+                console.log(JSON.stringify(this._data))
+                this.age = null;
+            }
+        },
+    })
+
+</script>
+</body>
+</html>
