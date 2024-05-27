@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div class="root">
+
+        <!-- 这个叫做插值语法  -->
+        <h3>Hello, {{school.name}} , {{Date.now()}}</h3>
+
+        
+        <!-- 这叫做指令语法 修改的是标签属性 -->
+        <a v-bind:href="url">点击去百度</a>
+        <a :href="url">点击去百度</a>
+    </div>
+
+    
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        const x = new Vue({
+            el: ".root",
+            data: {
+                name:"test",
+                url: "http://www.baidu.com",
+                school:{
+                    name :"school-test"
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

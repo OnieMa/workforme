@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染 </title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .basic {
+            width: 10px;
+            height: auto;
+            background-color: skyblue;
+        }
+
+        .happy {
+            background-color: green;
+        }
+
+        .yuan {
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+<div id="root">
+    <h3>{{name}}</h3>
+    <h3>{{age}}</h3><br/>
+    <h3>{{leader}}</h3><br/>
+
+    <h3>年龄: {{stu.age}}</h3>
+    <h3>名字: {{stu.name}}</h3>
+    <h3 v-if="stu.sex">性别: {{stu.sex}}</h3>
+    <span>爱好: </span>
+    <ul>
+        <li v-for="h in stu.hobby">{{h}}</li>
+    </ul>
+    <button @click="addHobby">添加爱好</button>
+    <h3>朋友们</h3>
+    <button @click="addSex"> 添加性别</button>
+    <ul>
+        <li v-for="f in friends">{{f.name}}</li>
+    </ul>
+
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            name: 'dahua',
+            age: 1993,
+            stu: {
+                name: 'xiaoma',
+                age: 25,
+                hobby: ['game', 'sing']
+            },
+            friends: [
+                {
+                    name: 'fri11',
+                    age: 25
+                }, {
+                    name: 'fri22',
+                    age: 25
+                }
+            ]
+        },
+
+        methods: {
+            addSex() {
+                this.$set(this.stu, 'sex', '111')
+            },
+            addHobby() {
+                this.stu.hobby.shift();
+            }
+        },
+    })
+
+</script>
+</body>
+
+</html>

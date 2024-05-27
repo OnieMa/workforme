@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- mvvm -->
+    <div id="root">
+        <span>{{fullname}}</span>
+    </div>
+
+
+
+    <script type="text/javascript">
+        Vue.config.keyCodes.huiche = 13;
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                message: 'Hello world',
+                first: 'xiaozhu',
+                last: 'peiqi'
+            },
+            computed: {
+                // 计算属性的 getter
+                reversedMessage: function () {
+                    // `this` 指向 vm 实例
+                    return this.message.split('').reverse().join('')
+                },
+                fullname() {
+                    return this.first + ' ' +this.last;
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

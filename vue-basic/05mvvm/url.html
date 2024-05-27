@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- mvvm -->
+    <div id="root">
+
+        {{name}}
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        let number = 30;
+        let person = {
+            name: 'zhangsan',
+            sex: 'man'
+
+        }
+
+        Object.defineProperty(person, 'age', {
+            // value: 18,
+            // enumerable: true, //控制是否可以被枚举
+            // writable: true,  // 判断能否被修改
+            // configurable: true,  //判断能否被删除
+
+
+            get(){
+                return{
+                    number
+                }
+            },
+
+            set(num){
+                number = num
+            }
+
+        })
+
+
+
+
+
+        console.log(Object.keys(person))
+    </script>
+</body>
+
+</html>

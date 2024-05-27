@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染 </title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .basic {
+            width: 10px;
+            height: auto;
+            background-color: skyblue;
+        }
+
+        .happy {
+            background-color: green;
+        }
+
+        .yuan {
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+<div id="root">
+
+    <input type="text" placeholder="请输入名字:" v-model="keyword">
+    <ul>
+        <li v-for="(val,key) in resPersons " :key="key">{{val.name}}--{{val.age}}</li>
+    </ul>
+    <br/>
+    <button @click="sortType = 1">年龄升序</button>
+    <button @click="sortType = 2">年龄降序</button>
+    <button @click="sortType = 0">原始顺序</button>
+    <ul>
+        <li v-for="(val,key) in resPersons " :key="key">{{val.name}}--{{val.age}}</li>
+    </ul>
+
+
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            sortType: 0, //0 原数据 1 升序 2 降序
+            keyword: "",
+            person: [
+                {
+                    name: 'zhangsan',
+                    age: 18
+                },
+                {
+                    name: 'lisi',
+                    age: 20,
+                    sex: "dhsjk"
+                },
+                {
+                    name: 'wangwu',
+                    age: 90
+                },
+                {
+                    name: '王麻子',
+                    age: 30
+                }
+            ]
+        },
+        // 计算的时候依赖的数据发生了变化
+        computed: {
+            resPersons() {
+                const arr = this.person.filter((p) => {
+                    return p.name.indexOf(this.keyword) !== -1
+                })
+                if (this.sortType) {
+                    arr.sort((a, b) => {
+                        return this.sortType == 1 ? a.age - b.age : b.age - a.age
+                    })
+                }
+                return arr
+            }
+        },
+        // watch: {
+        //     keyword: {
+        //         immediate: true,
+        //         handler(val) {
+        //             console.log(val);
+        //             this.resPersons = this.person.filter((p) => {
+        //                 return p.name.indexOf(val) != -1
+        //             })
+        //         }
+        //     }
+        // }
+
+
+    })
+</script>
+</body>
+
+</html>

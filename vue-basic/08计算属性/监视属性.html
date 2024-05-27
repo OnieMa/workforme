@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>事件修饰符</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <!-- mvvm -->
+    <div id="root">
+        <span>天气怎么样{{info ? "炎热":"寒冷"}}</span>
+        <button @click="handle"> 33333</button><br />
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: 'ahhsjdhj',
+                address: '112333',
+                info: false
+            },
+
+            methods: {
+                handle() {
+                    this.info = !this.info;
+                }
+            },
+            watch: {
+                info: {
+                    handler(newValue, oldValue) {
+                        console.log("change : ", newValue, oldValue);
+                    }
+                }
+            }
+        })
+
+
+       /*  vm.$watch("info", {
+            handler(newValue, oldValue) {
+                console.log("change : ", newValue, oldValue);
+            }
+        }) */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- mvvm -->
+    <div id="root">
+
+        {{name}}
+        {{address}}
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: 'ahhsjdhj',
+                address: '112333'
+            }
+
+        })
+    </script>
+</body>
+
+</html>

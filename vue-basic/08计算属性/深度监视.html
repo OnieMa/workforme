@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>深度监视</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <!-- mvvm -->
+    <div id="root">
+        <span>天气怎么样{{info ? "炎热":"寒冷"}}</span>
+        <button @click="handle"> 33333</button><br />
+        <h3>a的值为 :{{numbers.a}}</h3> <button @click="numbers.a++">点击让a自增</button> <br />
+        <h3>b的值为 :{{numbers.b}}</h3> <button @click="numbers.b++">点击让a自增</button> <br />
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        const vm = new Vue({
+            el: '#root',
+            data: {
+
+                info: false,
+                numbers: {
+                    a: 1,
+                    b: 2
+
+                }
+            },
+
+            methods: {
+                handle() {
+                    return this.info = !this.info;
+                }
+            },
+            watch: {
+                'numbers.a': {
+                    handler(newValue, oldValue) {
+                        console.log("change : ", newValue, oldValue);
+                    }
+                },
+
+                numbers: {
+                    deep: true, //开启深度的检测
+                    handler(newValue, oldValue) {
+                        console.log("change : ", newValue, oldValue);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

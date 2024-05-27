@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性与watch的区别</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .basic {
+            width: 10;
+            height: auto;
+            background-color: skyblue;
+        }
+
+        .happy {
+            background-color: green;
+        }
+
+        .yuan {
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- mvvm -->
+    <div id="root">
+
+        <span :class="arr" @click="changeMood()">{{fullname}}</span>
+        <span :style="styleObj">hello</span>
+    </div>
+
+
+
+    <script type="text/javascript">
+        /* 
+            计算属性可以返回一个 不存在的字段      计算属性只有得到返回值才可以进行页面数据的刷新 所以必须即刻返回 
+            watch必须监视一个     存在的字段  watch的   watch可以开启一个异步的任务 
+        
+        */
+        Vue.config.keyCodes.huiche = 13;
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                a: 'basic',
+                message: 'Hello world',
+                first: 'xiaozhu',
+                last: 'peiqi',
+                fullname: "22312",
+                arr: ["yuan", "happy"],
+                styleObj:{
+                    fontSize:'40px',
+                    backgroundColor:'orange'
+                }
+            },
+            methods: {
+                changeMood() {
+                    this.a = 'happy'
+                }
+            },
+            watch: {
+                first() {
+                    // 这里的定时任务 不是vue所管理的函数  定时器的回调不受vue控制的 所以这里必须写成箭头函数
+                    setTimeout(() => {
+                        console.log(this);
+                        this.fullname = this.first + this.last
+                    }, 1000);
+                },
+                last() {
+                    this.fullname = this.first + this.last
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

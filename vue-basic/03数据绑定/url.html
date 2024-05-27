@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+        单向数据绑定 : <input type="text" :value="name">
+        双向数据绑定 : <input type="text" v-model:value="name">
+        <!-- 可以简写为 -->
+        双向数据绑定 : <input type="text" v-model="name">
+
+
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        const x = new Vue({
+            // el: ".root",  第一种写法
+
+            // data的第一种写法
+            // data: {
+            //     name: "test",
+            //     url: "http://www.baidu.com",
+            //     school: {
+            //         name: "school-test"
+            //     }
+            // },
+
+            data() {
+                return {
+                    name: "data new  name"
+
+                }
+            }
+
+        })
+
+        x.$mount('#root')  // 第二种写法
+
+
+    </script>
+</body>
+
+</html>

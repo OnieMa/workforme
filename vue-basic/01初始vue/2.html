@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div class="root">
+        <!-- 双括号里面是 js表达式  注意js表达式和js代码的区别
+            1.一个表达式会生成一个值
+               a     a+b   demo(1)
+            2. js代码 语句
+        -->
+        <h3>Hello, {{name}} , {{Date.now()}}</h3>
+    </div>
+
+    
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        const x = new Vue({
+            el: ".root",
+            data: {
+                name: "mamam",
+                age: 18
+            },
+        })
+    </script>
+</body>
+
+</html>

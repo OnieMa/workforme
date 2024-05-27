@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染 </title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .basic {
+            width: 10px;
+            height: auto;
+            background-color: skyblue;
+        }
+
+        .happy {
+            background-color: green;
+        }
+
+        .yuan {
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <ul>
+            <li v-for="(val,key) in car " :key="key">{{val}}--{{key}}</li>
+            <br/>
+            <li v-for="(val,key) in str " :key="key">{{key}}--{{val}}</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                person: [
+                    {
+                        name: 'zhangsan',
+                        age: 134
+                    },
+                    {
+                        name: 'lisi',
+                        age: 20,
+                        sex: "dhsjk"
+                    },
+                    {
+                        name: 'wangwu',
+                        age: 90
+                    }
+                ],
+                car:{
+                    name:'aodi',
+                    pirce:'80w'
+                },
+                str:'hello'
+            },
+            methods: {
+                changeMood() {
+
+                }
+            },
+            computed: {
+                fullName() {
+                    return this.person[0].name + ' ' + this.person[1].name
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <span>当前的: {{count}}</span>
+    <div v-big="count"></div>
+    <button @click="count++">加1</button>
+    <input type="text" v-fbind:value="count">
+</div>
+
+
+<script type="text/javascript">
+    Vue.config.devtools = true;
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            time: Date(),
+            name: '<h3>hello</h3>',
+            count: 0
+        },
+        directives: {
+            /* 1. 指令与元素绑定的时候  会被调用 big <=> count
+            *  2. 指令所在的模板被重新解析的时候  会被调用
+            *  下面展示的是函数式
+            * */
+            big: function (element, binding) {
+                console.log(element, binding);
+                element.innerText = binding.value * 10;
+            },
+            // 下面是对象的形式
+            fbind: {
+                // 指令与元素绑定后
+                bind(element, binding) {
+                    element.value = binding.value * 20;
+                },
+                // 元素被插入页面的时候
+                inserted(element, binding) {
+                    element.focus();
+                },
+                // 元素所在模板被重新解析的时候
+                update(element, binding) {
+                    element.value = binding.value * 20;
+                }
+            }
+
+        }
+
+    })
+
+</script>
+</body>
+</html>
