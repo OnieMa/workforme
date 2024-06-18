@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueComponent</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="root">
+    <app></app>
+</div>
+</body>
+<script type="text/javascript">
+
+    const stu = {
+        template: `
+          <div>
+            <h3>学生:{{ stu }}</h3>
+            <h3>年龄:{{ age }}</h3>
+          </div>
+        `,
+        //el: '#root', 不要写el的配置项  所有的组建的最后都被一个vm管理
+        data: function () {
+            return {
+                stu: 'maaoyu',
+                age: 12
+            }
+        }
+    }
+    const hello = {
+        template: `
+          <div>
+            <h3>msg:{{ msg }}</h3>
+          </div>
+        `,
+        data: function () {
+            return {
+                msg: 'hello...'
+            }
+        },
+        mounted() {
+            console.log('@@@',this);
+        },
+    }
+
+    const app = Vue.extend({
+        template: `
+          <div>
+            <stu></stu>
+            <hello></hello>
+          </div>
+        `,
+        components: {
+            stu,
+            hello
+        }
+    })
+
+    new Vue({
+        el: '#root',
+        // 注册组件  局部注册
+        components: {
+            app
+        },
+        data: {
+            msg: 'welcome to 杭州'
+        }
+
+    })
+
+
+</script>
+
+
+</html>

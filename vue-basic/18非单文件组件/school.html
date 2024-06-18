@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>school</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="root">
+    <!--这里放的是组件-->
+    <school></school>
+    <hr>
+    <stu></stu>
+
+</div>
+</body>
+<script type="text/javascript">
+    const school = Vue.extend({
+        template:`
+          <div>
+          <h3>学校:{{school}}</h3>
+          <h3>地址:{{addr}}</h3>
+            <button @click="al">点击弹窗</button>
+          </div>
+        `,
+        //el: '#root', 不要写el的配置项  所有的组建的最后都被一个vm管理
+        data: function () {
+            return {
+                school : 'xust',
+                addr: 'xi\'an',
+            }
+        },
+        methods: {
+            al() {
+              alert(this.addr)
+            }
+        },
+    })
+
+    const stu = Vue.extend({
+        template:`
+          <div>
+            <h3>学生:{{ stu }}</h3>
+            <h3>年龄:{{ age }}</h3>
+          </div>
+        `,
+        //el: '#root', 不要写el的配置项  所有的组建的最后都被一个vm管理
+        data: function () {
+            return {
+                stu: 'maaoyu',
+                age: 12
+            }
+        },
+    })
+
+    new Vue({
+        el: '#root',
+        // 注册组件  局部注册
+        components: {school, stu}
+    })
+
+
+</script>
+
+
+</html>

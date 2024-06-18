@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueComponent</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="root">
+    <app></app>
+</div>
+</body>
+<script type="text/javascript">
+
+    function demo() {
+        this.a = 1;
+        this.b = 2;
+    }
+
+    const d = new demo();
+    console.log(demo.prototype) // 显示原型属性
+    console.log(d.__proto__)    // 隐式原型属性
+
+    demo.prototype.x = 30
+
+    console.log(d)
+
+/*
+
+    const hello = {
+        template: `
+          <div>
+            <h3>msg:{{ msg }}</h3>
+          </div>
+        `,
+        data: function () {
+            return {
+                msg: 'hello...'
+            }
+        },
+        mounted() {
+            console.log('@@@',this);
+        },
+    }
+
+    const app = Vue.extend({
+        template: `
+          <div>
+            <stu></stu>
+            <hello></hello>
+          </div>
+        `,
+        components: {
+            stu,
+            hello
+        }
+    })
+
+    new Vue({
+        el: '#root',
+        // 注册组件  局部注册
+        components: {
+            app
+        },
+        data: {
+            msg: 'welcome to 杭州'
+        }
+
+    })
+*/
+
+
+</script>
+
+
+</html>

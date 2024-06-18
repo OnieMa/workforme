@@ -38,8 +38,10 @@ The lingering question kept me up
 I wonder 'til I'm wide awake
            [ˈpeɪsɪŋ] 步调 踱步
 And now I'm pacing back and forth
-Wishing you were at my door
-I'd open up and you would say
+Wishing you were at my door I'd   
+
+open 那配d 
+open up and you would say
 "Hey, it was    enchanting to meet you"
 All I know is I was enchanted to meet you
 
@@ -47,6 +49,7 @@ This night is sparkling, don't you let it go
 I'm wonderstruck, blushing all the way home
 I'll spend forever wondering if you knew
 This night is flawless, don't you let it go
+                  
 I'm wonderstruck, dancing around all alone
 I'll spend forever wondering if you knew
 I was enchanted to meet you
@@ -59,6 +62,7 @@ Until I see you again
 These are the words I held back
 As I was leaving too soon
 I was enchanted to meet you
+
 Please, don't be in love with someone else
 Please, don't have somebody waiting on you
 Please, don't be in love with someone else

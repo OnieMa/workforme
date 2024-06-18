@@ -9,6 +9,8 @@ from datetime import datetime, timedelta
 
 import requests
 
+addr = 'http://165.154.57.177:60090'
+
 # 配置日志
 logging.basicConfig(
 	level='INFO',  # 设置日志级别为DEBUG，也可以是INFO, WARNING, ERROR, CRITICAL
@@ -44,7 +46,7 @@ def send2dd(msg):
 
 def visit_taiwan():
 	session = requests.session()
-	resp = session.get("http://165.154.57.177:60090/do")
+	resp = session.get(addr + "/do")
 	if resp.status_code != 200:
 		logging.info("Something went wrong, " + str(resp.status_code))
 		logging.info(resp.text)
@@ -59,7 +61,7 @@ def visit_taiwan():
 
 def health_examination():
 	session = requests.session()
-	resp = session.get("http://165.154.57.177:60090/state")
+	resp = session.get(addr + "/state")
 	if resp.status_code != 200 or int(resp.text) != 0:
 		logging.info("Something went wrong, " + str(resp.status_code) + " resp:  " + resp.text)
 		send2dd("   SERVICE IS STOP  ")

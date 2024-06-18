@@ -1,0 +1,4 @@
+bindPort = 60000
+token = 'maaoyu'
+[log]
+to = "/opt/frp/frp.log"

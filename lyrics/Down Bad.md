@@ -31,9 +31,12 @@ What if I can't have him
 
 Did you take all my old clothes?
 Just to leave me here   naked and alone
-In a field in my same old town
-That somehow seems so hollow now
-They'll say I'm nuts if I talk about the existence of you
+
+In a field-in my  same old town
+    [ˈsʌmhaʊ]          [ˈhɒləʊ]
+That somehow seems   so hollow now     
+                     [nʌts] 那tei发i                   [ɪɡˈzɪstəns]
+They'll say I'm      nuts if I   talk about   the existence of you
 For a moment I was heaven struck
 
 Now I'm down bad crying at the gym
@@ -58,6 +61,7 @@ I loved your hostile takeovers
 Encounters closer and closer
 All your indecent exposures
 How dare you say that it's -
+
 I'll build you a fort on some planet
 Where they can all understand it
 How dare you think it's romantic
