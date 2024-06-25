@@ -21,7 +21,7 @@ export default {
         this.$set(todo, 'isEdit', true);
       }
       this.$nextTick(function () {
-        this.$refs.inputText.focus()
+        this.$refs.inputEdit.focus()
       });
     },
     noEdit(todo) {
@@ -38,7 +38,7 @@ export default {
       <!--      <input type="checkbox" :checked="task.done" @change="changeTodo(task.id)">{{ task.todo }}-->
       <input type="checkbox" v-model="task.done">
       <span v-show="!task.isEdit">{{ task.todo }}</span>
-      <input v-show="task.isEdit" type="text" :value="task.todo" :ref="inputText">
+      <input v-show="task.isEdit" type="text" :value="task.todo" ref="inputEdit">
       <button class="keepRight" @click="delTask(task.id)">del</button>
       <button class="keepRight" @click="editTask(task)" @blur="noEdit(task)">edit</button>
     </div>

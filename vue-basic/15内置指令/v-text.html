@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="root">
+
+    <!--  v-text会替换掉所有内容  -->
+    <div v-text='time'>现在是:</div>
+    <div>现在是: {{time}}</div>
+
+    <!--支持结构的解析  存在一个安全漏洞-->
+    <div v-html="name"></div>
+
+    <!-- 没有值  可以搭配网速慢的时候 未解析的数据跑到页面上-->
+    <div v-cloak>{{time}}</div>
+
+    <!--在初次动态渲染后 不再改变 变为静态数据-->
+    <div v-once>{{count}}</div>
+    <div @click="count++">{{count}}</div>
+
+    <!--v-pre 会跳过vue的页面解析 会原生的展示字符串-->
+    <div v-pre>不读取动态数据</div>
+    <div v-pre>{{count}}</div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+    Vue.config.devtools = true;
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            time: Date(),
+            name: '<h3>hello</h3>',
+            count:0
+        },
+        methods: {
+            ok() {
+            }
+        },
+        filters: {
+            timeFormatter(value, msg) {
+                return value + '   ' + msg;
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

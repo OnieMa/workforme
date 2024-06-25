@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bdb10550-b289-43e4-9ef3-02183af84cec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../daka/frps.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lyrics/i'm not yours.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/18非单文件组件/VueComponent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/18非单文件组件/school.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/18非单文件组件/几个注意点.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/18非单文件组件/案例.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/18非单文件组件/组件嵌套.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19 单文件组件/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19 单文件组件/School.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19 单文件组件/Student.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19 单文件组件/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19 单文件组件/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../daka/config.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../daka/happy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../daka/happy2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../daka/logconfig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../daka/new.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../daka/rdm.py" beforeDir="false" afterPath="$PROJECT_DIR$/../daka/rdm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../daka/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lyrics/Enchanted.md" beforeDir="false" afterPath="$PROJECT_DIR$/../lyrics/Enchanted.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lyrics/We are never ever getting back together.md" beforeDir="false" afterPath="$PROJECT_DIR$/../lyrics/We are never ever getting back together.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/17声明周期/生命周期.html" beforeDir="false" afterPath="$PROJECT_DIR$/17声明周期/生命周期.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Vue Options API Component" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2gmH70OYZrZ6U1Xau7tkTwve61X" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/MaAoyu/workforme/Vue-npm",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\software\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Options API Component"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MaAoyu\workforme\vue-basic\18非单文件组件" />
+      <recent name="D:\MaAoyu\workforme\vue-basic" />
+      <recent name="D:\MaAoyu\workforme\vue-basic\15内置指令" />
+      <recent name="D:\MaAoyu\workforme\vue-basic\13表单数据收集" />
+      <recent name="D:\webstorms\vue-basic\08计算属性" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdb10550-b289-43e4-9ef3-02183af84cec" name="Changes" comment="" />
+      <created>1716295661468</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716295661468</updated>
+      <workItem from="1716295662469" duration="2195000" />
+      <workItem from="1716361623740" duration="1108000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,10 +1,19 @@
 <template>
   <div id="root" class="frame">
-    <div class="todo">
-      <Header :receive="addTodo"/>
-      <List :todos="todos"/>
-      <Footer v-on:checkAll="setChecked" :nums="nums" @clearAllTodo="clearAllTodo"/>
-    </div>
+    <button @click="isShow = !isShow">显示/隐藏</button>
+
+<!--    <transition :appear="true">     和下面的是一样的效果-->
+    <transition appear>
+      <div class="todo" v-show="isShow">
+        <Header :receive="addTodo"/>
+        <List :todos="todos"/>
+        <Footer v-on:checkAll="setChecked" :nums="nums" @clearAllTodo="clearAllTodo"/>
+      </div>
+    </transition>
+
+    <transition>
+      <h2 v-show="isShow">hello</h2>
+    </transition>
   </div>
 
 </template>
@@ -19,6 +28,7 @@ export default {
   components: {Header, Footer, List},
   data() {
     return {
+      isShow: true,
       todos: [
         {
           id: '0001',
@@ -69,7 +79,7 @@ export default {
     }
   },
   mounted() {
-    pubsub.subscribe('edit',(s,b)=>{
+    pubsub.subscribe('edit', (s, b) => {
 
     })
   }
@@ -83,4 +93,22 @@ export default {
   width: 500px;
   height: 1000px;
 }
+.v-enter-active{
+  animation: may 0.5s linear;
+}
+.v-leave-active{
+  animation: may 0.5s linear reverse;
+}
+
+@keyframes may {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0px);
+  }
+}
+
+
+
 </style>
