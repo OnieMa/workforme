@@ -6,11 +6,16 @@ import Message from "@/pages/Message.vue";
 import Detail from "@/pages/Detail.vue";
 
 const Rt = new vueRouter({
+	mode: "history",
 	routes: [
 		{
 			name: 'guanyu',
 			path: '/About',
-			component: About
+			component: About,
+			meta: {
+				isAuth: true,
+				title:'关于'
+			},
 		},
 		{
 			name: 'jia',
@@ -21,6 +26,24 @@ const Rt = new vueRouter({
 					name: 'xinwen',
 					path: 'News',
 					component: News,
+					meta: {
+						isAuth: true,
+						title:'新闻'
+					},
+					// 独享的路由守卫
+					// beforeEnter: ()=>{}
+					beforeEnter(to,from,next){
+						if (to.meta.isAuth) {
+							if (localStorage.getItem("school") === 'dahua') {
+								next();
+							} else {
+								alert("无权限")
+							}
+						} else {
+							next()
+						}
+						console.log('beforeEnter',this)
+					}
 				},
 				{
 					name: 'xiaoxi',
@@ -45,19 +68,36 @@ const Rt = new vueRouter({
 });
 
 // 在这里加上路由守卫 每次路由切换之前 和 初始化的时候被调用
-Rt.beforeEach((to, from, next) => {
-	if (to.path === '/Home/News') {
-		if (localStorage.getItem("school") === 'dahua') {
-			next();
-		}
-		alert("无权限")
-	}else {
-		next()
-	}
+// Rt.beforeEach((to, from, next) => {
+// 	if (to.path === '/Home/News') {
+// 		if (localStorage.getItem("school") === 'dahua') {
+// 			next();
+// 		}
+// 		alert("无权限")
+// 	}else {
+// 		next()
+// 	}
+// })
 
 
+// 使用meta元信息进行权限的校验
+// Rt.beforeEach((to, from, next) => {
+// 	if (to.meta.isAuth) {
+// 		if (localStorage.getItem("school") === 'dahua') {
+// 			next();
+// 		} else {
+// 			alert("无权限")
+// 		}
+// 	} else {
+// 		next()
+// 	}
+// })
 
+// 后置的守卫 一般是用于做title的展示
+Rt.afterEach((to, from) => {
+	document.title = to.meta.title || 'vueRouter'
+	console.log('to',to)
+	console.log('from',from)
 })
-
 
 export default Rt

@@ -32,11 +32,11 @@ What if I can't have him
 Did you take all my old clothes?
 Just to leave me here   naked and alone
 
-In a field-in my  same old town
+In a field-in  my  same old town
     [ˈsʌmhaʊ]          [ˈhɒləʊ]
 That somehow seems   so hollow now     
                      [nʌts] 那tei发i                   [ɪɡˈzɪstəns]
-They'll say I'm      nuts if I   talk about   the existence of you
+They'll say I'm      nuts if I    talk about   the existence of you
 For a moment I was heaven struck
 
 Now I'm down bad crying at the gym

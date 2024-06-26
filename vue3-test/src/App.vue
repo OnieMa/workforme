@@ -1,41 +1,44 @@
 <template>
-	<div id="app">
-		<div class="row">
-			<div class="col-xs-offset-2 col-xs-8">
-				<div class="page-header">
-					<Banner></Banner>
-				</div>
-			</div>
-		</div>
+	<!--  <img alt="Vue logo" src="./assets/logo.png">-->
+	<!--	<Hello>
+			<template v-slot:sss>
+				<h4>Test slot</h4>
+			</template>
+		</Hello>-->
 
-		<el-row>
-			<el-button>哈哈</el-button>
-		</el-row>
+	<!--	<WatchTest></WatchTest>-->
+	<!--	<LifeTest v-if="isShow"></LifeTest>-->
+	<button @click="isShow = !isShow">展示/消失</button>
+	<MouseClick v-if="isShow"></MouseClick>
 
-		<div class="row">
-			<div class="col-xs-2 col-xs-offset-2">
-				<div class="list-group">
-					<router-link class="list-group-item" to="/About" active-class="active">about</router-link>
-					<router-link class="list-group-item" to="/Home" active-class="active">home</router-link>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-6">
-			<div class="panel-body">
-				<router-view></router-view>
-			</div>
-		</div>
-	</div>
+
+	<hr>
+	<RefTest></RefTest>
+
 </template>
 
 <script>
-
-
-import Banner from "@/components/Banner.vue";
+import {ref} from "vue";
+import MouseClick from "@/components/MouseClick.vue";
+import RefTest from "@/components/RefTest.vue";
 
 export default {
 	name: 'App',
-	components: {Banner}
+	components: {
+		RefTest,
+		MouseClick
+		// LifeTest,
+		// WatchTest,
+		// Hello
+	},
+	setup() {
+		let isShow = ref(true)
+
+		return {
+			isShow,
+		}
+	}
+
 }
 </script>
 

@@ -22,14 +22,15 @@ You belong with me, you belong with me
 
                                     [ˌwɔːn ˈaʊt]王娜 Gz
 Walk in the streets    with you-in your worn-out jeans
-  kannap                               /ɔːt/应该
+       kannap  忒k zeis                         /ɔːt/应该
 I can't help thinking   this-is how it   ought to be
-Laughing on a park  bench thinking to myself  "Hey, isn't this easy?"
+Laughing on a park bench  thinking to myself  "Hey, isn't this easy?"
                                      
-And you've got a smile   that can lightup this whole town
-I haven't seen it in a while   since she brought you down
+And you've got a smile   that can lightup this whole town 
+
+I haven't seen it in a while since she brought you down
 You say you're fine I know you better than that
-Hey, what you doing with a girl like that?
+Hey, what you doing with a     girl like that?
                             [ˈsniːkə(r)]
 She wears high heels, I wear sneakers
 She's cheer captain and I'm on the bleachers
@@ -49,8 +50,8 @@ When you know you're 'bout to cry
 
 I know your favorite songs
 And you tell me 'bout your dreams
-Think I know where you belong
-Think I know it's with me
+Think I know  where you belong
+Think I know  it's with me
 
 Can't you see that I'm   the one who understands you?
 Been here all  along, so why can't you see?

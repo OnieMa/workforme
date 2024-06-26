@@ -5,6 +5,25 @@ export default {
 	destroyed() {
 		console.log('About destroy');
 	},
+	// 组件内的路由守卫
+	beforeRouteEnter(to, from, next){
+		console.log("beforeEnter" , this)
+		if (to.meta.isAuth) {
+			if (localStorage.getItem("school") === 'dahua') {
+				next();
+			} else {
+				alert("无权限")
+			}
+		} else {
+			next()
+		}
+		// next(vm => {${1:}
+		// });
+	},
+	beforeRouteLeave(to, from, next) {
+		console.log("beforeRouteLeave" , this)
+		next();
+	},
 }
 </script>
 

@@ -8,7 +8,7 @@ the weather Now you're in my backyard Turned into  good neighbors [ˈneɪbəz] �
 Your wife waters flowers I want to kill her.
 
 All my mornings are   Mondays  Stuck in an   endless February [ˈfebrueri]
-I took the miracle    move-on-drug The  effects[ɪˈfekts]  were temporary[ˈtempəreri] 短期的 雇佣工
+I took the miracle    move-on-drug The       effects[ɪˈfekts]  were temporary[ˈtempəreri] 短期的 雇佣工
 And I love you
 It's ruining my life
 (I love you, it's ruining my life)
