@@ -22,15 +22,16 @@ You belong with me, you belong with me
 
                                     [ˌwɔːn ˈaʊt]王娜 Gz
 Walk in the streets    with you-in your worn-out jeans
-       kannap  忒k zeis                         /ɔːt/应该
+       kannap  忒k zeisz                         /ɔːt/应该
 I can't help thinking   this-is how it   ought to be
 Laughing on a park bench  thinking to myself  "Hey, isn't this easy?"
                                      
 And you've got a smile   that can lightup this whole town 
 
-I haven't seen it in a while since she brought you down
-You say you're fine I know you better than that
-Hey, what you doing with a     girl like that?
+I haven't seen it in a  while since she brought you down
+
+You say you're fine I know you  better than that
+Hey, what you doing with a      girl like that?
                             [ˈsniːkə(r)]
 She wears high heels, I wear sneakers
 She's cheer captain and I'm on the bleachers

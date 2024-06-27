@@ -15,10 +15,14 @@ You wouldn't know    what I mean
 Karma is a god
 Karma is the breeze in my hair on the weekend
 Karma's a relaxing thought
+           [ˈenviəs]
 Aren't you envious that for you it's not?
 Sweet like honey, karma is a cat
+[ˈpɜːrɪŋ]     
 Purring in my lap 'cause it loves me
+[ˈfleksɪŋ]挠曲   [ˈɡɒddæm]该死的  [ˈækrəbæt] 杂技演员
 Flexing like a goddamn acrobat
+             [vaɪb] 感应 传递
 Me and karma vibe like that
 
 
@@ -31,8 +35,8 @@ Trick me once, trick me twice
 Don't you know that cash ain't the only price?
 It's coming back around
 
-And I keep my side of the street clean
-You wouldn't know what I mean
+And I keep my side     of the street clean
+You wouldn't know      what I mean
 
 'Cause karma is my boyfriend
 Karma is a god
