@@ -66,6 +66,7 @@ I'll build you a fort on some planet
 Where they can all understand it
 How dare you think it's romantic
 Leaving me safe and stranded
+
 Cause what if I was in love
 What if I can't have us.
 Cause what if I was in love

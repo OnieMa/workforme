@@ -1,4 +1,7 @@
 <script>
+import nprogress from "nprogress";
+// 配置 NProgress
+nprogress.configure({ speed: 500, showSpinner: false })
 export default {
 	// eslint-disable-next-line vue/multi-word-component-names
 	name: "About",
@@ -6,8 +9,9 @@ export default {
 		console.log('About destroy');
 	},
 	// 组件内的路由守卫
-	beforeRouteEnter(to, from, next){
-		console.log("beforeEnter" , this)
+	beforeRouteEnter(to, from, next) {
+		console.log("beforeEnter", this)
+
 		if (to.meta.isAuth) {
 			if (localStorage.getItem("school") === 'dahua') {
 				next();
@@ -21,7 +25,8 @@ export default {
 		// });
 	},
 	beforeRouteLeave(to, from, next) {
-		console.log("beforeRouteLeave" , this)
+		console.log("beforeRouteLeave", this)
+
 		next();
 	},
 }

@@ -4,8 +4,10 @@ import Home from "@/pages/Home.vue";
 import News from "@/pages/News.vue";
 import Message from "@/pages/Message.vue";
 import Detail from "@/pages/Detail.vue";
+import NProgress from 'nprogress'
 
-const Rt = new vueRouter({
+
+const router = new vueRouter({
 	mode: "history",
 	routes: [
 		{
@@ -67,8 +69,29 @@ const Rt = new vueRouter({
 	]
 });
 
+// 配置 NProgress，禁用自动 trickle 并设置 trickleSpeed
+NProgress.configure({ trickle: false })
+
+let timer
+
+router.beforeEach((to, from, next) => {
+	NProgress.start()
+	// 每次路由开始时启动定时器，模拟匀速加载
+	timer = setInterval(() => {
+		NProgress.inc()
+	}, 100)
+	next()
+})
+
+router.afterEach(() => {
+	// 路由结束时完成进度条并清除定时器
+	clearInterval(timer)
+	NProgress.done()
+})
+
+
 // 在这里加上路由守卫 每次路由切换之前 和 初始化的时候被调用
-// Rt.beforeEach((to, from, next) => {
+// router.beforeEach((to, from, next) => {
 // 	if (to.path === '/Home/News') {
 // 		if (localStorage.getItem("school") === 'dahua') {
 // 			next();
@@ -81,7 +104,7 @@ const Rt = new vueRouter({
 
 
 // 使用meta元信息进行权限的校验
-// Rt.beforeEach((to, from, next) => {
+// router.beforeEach((to, from, next) => {
 // 	if (to.meta.isAuth) {
 // 		if (localStorage.getItem("school") === 'dahua') {
 // 			next();
@@ -94,10 +117,10 @@ const Rt = new vueRouter({
 // })
 
 // 后置的守卫 一般是用于做title的展示
-Rt.afterEach((to, from) => {
-	document.title = to.meta.title || 'vueRouter'
-	console.log('to',to)
-	console.log('from',from)
-})
+// router.afterEach((to, from) => {
+// 	document.title = to.meta.title || 'vueRouter'
+// 	console.log('to',to)
+// 	console.log('from',from)
+// })
 
-export default Rt
+export default router

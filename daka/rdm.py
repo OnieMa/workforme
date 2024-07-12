@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 import requests
 
-addr = 'http://165.154.57.177:60090'
+addr = 'http://localhost:60090'
 
 # 配置日志
 logging.basicConfig(
