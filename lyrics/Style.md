@@ -5,8 +5,11 @@ Could end in burning flames or paradise
 Fade into view, oh
 It's been a while since I have even heard from you
 (Heard from you)
+[æn aɪʃʊ dʒʌs telju:   tə li:v] cause i
 I should just tell you to leave, 'cause I
+[noʊ ɪɡˈzæli    werɪ  lidz, bət aɪ]
 Know exactly where it leads, but I
+[wɑʧ əs ɡoʊ raʊnd ənd raʊnd iʧ taɪm]
 Watch us go 'round and 'round each time
 
 You got that James Dean daydream look in your eye
