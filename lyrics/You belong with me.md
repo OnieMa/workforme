@@ -28,10 +28,10 @@ Laughing on a park bench  thinking to myself  "Hey, isn't this easy?"
                                      
 And you've got a smile   that can lightup this whole town 
 
-I haven't seen it in a  while since she brought you down
+I haven't seen it   in a  while since   she brought you down
 
-You say you're fine I know you  better than that
-Hey, what you doing with a      girl like that?
+You say you're fine I  know you  better than that
+Hey, what you doing  with a      girl like that?
                             [ˈsniːkə(r)]
 She wears high heels, I wear sneakers
 She's cheer captain and I'm on the bleachers

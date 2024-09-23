@@ -1,0 +1,28 @@
+{
+    "nextPage": "[Integer]",
+    "results": [
+        {
+            "trialUniqueId": "审讯唯一码",
+            "caseUniqueId": "案件唯一码",
+            "caseName": "案件名称",
+            "groupName": "调查组名称",
+            "personUniqueId": "被审讯人唯一码",
+            "codeName": "代号",
+            "personName": "被审讯人姓名",
+            "photoUrl": "http://10.35.226.113:38498/image/file_ckdRjAWD_001/8a6181fcd1c9a736e5afb934b78a2daf/20220511_lock/1/bcc18d9e-d11f-11ec-9e44-b4055d345b3c.jpg",
+            "roomUniqueId": "6360",
+            "roomName": "TA72jDB4",
+            "userName": "at_zuzhang29,at_fu_zz29",
+            "startDate": "2021-10-19 08:00:00",
+            "endDate": "2021-10-19 10:00:00",
+            "status": "[Integer]",
+            "assistUserCode": "4779423082217472",
+            "mainUserCode": "4779423044861952",
+            "trialDurationCode": "[Integer]",
+            "trialDurationName": "2小时谈话",
+            "clientCategory": "[Integer]客户端类别，1：PC端 2：APP端，默认是1",
+            "creatorPcIp": "10.34.48.74"
+        }
+    ],
+    "totalCount": "[Integer]"
+}

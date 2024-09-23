@@ -27,7 +27,7 @@ Takes me home
 
 The lights are off, he's taking off his coat, mmm, yeah
 I say, "I heard, oh
-That you've been out and about with some other girl"
+That you've been out and about  with some other girl"
 Some other girl
 He says, "What you heard is true, but I
 Can't stop thinking 'bout you and I"

@@ -1,0 +1,28 @@
+{
+  "nextPage": "string",
+  "results": [
+    {
+      "assistUserCode": "string",
+      "caseName": "string",
+      "caseUniqueId": "string",
+      "clientCategory": "string",
+      "codeName": "string",
+      "creatorPcIp": "string",
+      "endDate": "string",
+      "groupName": "string",
+      "mainUserCode": "string",
+      "personName": "string",
+      "personUniqueId": "string",
+      "photoUrl": "string",
+      "roomName": "string",
+      "roomUniqueId": "string",
+      "startDate": "string",
+      "status": "string",
+      "trialDurationCode": "string",
+      "trialDurationName": "string",
+      "trialUniqueId": "string",
+      "userName": "string"
+    }
+  ],
+  "totalCount": "string"
+}

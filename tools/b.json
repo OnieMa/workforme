@@ -1,0 +1,29 @@
+{
+    "nextPage": -1,
+    "results": [
+        {
+            "assistUserCode": "10921845402437696",
+            "caseName": "核查组案件20240914103618812",
+            "caseUniqueId": "d84cfc6a85444a36b3c46fffe441dee9",
+            "clientCategory": 1,
+            "codeName": "DHUAJW20240072",
+            "creatorPcIp": "10.55.40.51",
+            "endDate": null,
+            "groupName": null,
+            "mainUserCode": "10926402916452416",
+            "personName": "DHUAJW20240072",
+            "personUniqueId": "8a6f481cb6bf40958c7b45a447da",
+            "photoUrl": "",
+            "roomId": 3,
+            "roomName": "义乌走读谈话室",
+            "roomUniqueId": "a5fa5b4c-c8e1-4657-b2d6-9eb2eeaa8bfd",
+            "startDate": "2024-09-14 10:38:15",
+            "status": 0,
+            "trialDurationCode": null,
+            "trialDurationName": "",
+            "trialUniqueId": "a12302f45baf45aa8ad0f41fbdcb1d54",
+            "userName": "小安,郑飞红"
+        }
+    ],
+    "totalCount": 2
+}

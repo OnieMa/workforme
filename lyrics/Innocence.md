@@ -1,4 +1,4 @@
-Waking up, I see that  everything is okay
+Waking up, I see that   everything is okay
 The first time in my life and now it's so great
 Slowing down, I look around and I am so amazed
 I think about   the little things that make life great
