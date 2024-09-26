@@ -6,7 +6,7 @@ export default {
 	name: "PanoramicDisplay",
 	data() {
 		return {
-			pic: "src/assets/dji_fly_20240831_下午93940_0103_1725187404642_pano.jpg",
+			pic: "/jinhua.jpg",
 		};
 	},
 	mounted() {
