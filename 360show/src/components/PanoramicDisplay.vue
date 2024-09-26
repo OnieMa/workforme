@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 #viewer {
-	width: 100vw;  /* 设置容器宽度为视口宽度 */
-	height: 100vh; /* 设置容器高度为视口高度 */
+	width: 100vw;
+	height: 100vh;
 }
 </style>

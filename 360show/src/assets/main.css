@@ -1,10 +1,12 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  width: 100%;          /* 设置宽度为100% */
+  height: 100vh;       /* 设置高度为100vh，填充整个视口高度 */
+  margin: 0;           /* 去掉外边距，确保没有间隙 */
+  padding: 2rem;       /* 内边距保持不变，可以根据需要调整 */
+  font-weight: normal; /* 字体粗细正常 */
+  box-sizing: border-box; /* 包含内边距和边框在内的宽度和高度计算 */
 }
 
 a,
