@@ -8,7 +8,6 @@ import PanoramicDisplay from './components/PanoramicDisplay.vue'
 	</header>
 
 	<main>
-
 		<PanoramicDisplay/>
 	</main>
 </template>
